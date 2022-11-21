@@ -43,8 +43,8 @@
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/wkdgus7113">                 
-                <img alt="장현희" src="https://avatars.githubusercontent.com/wkdgus7113" width="80" />            
+            <a href="https://github.com/huey-j">                 
+                <img alt="장현희" src="https://avatars.githubusercontent.com/huey-j" width="80" />            
             </a>
         </td>
         <td align="center">
