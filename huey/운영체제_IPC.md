@@ -118,9 +118,9 @@ _Image Reference: https://www.chromium.org/developers/design-documents/plugin-ar
 
 종류
 
-- 지명 파이프 (Anonymous Pipe)
+- 지명 파이프 (Named Pipe)
   - 부모 프로세스 -> 자식 프로세스 (같은 PPID 가짐)
-- 익명 파이프 (Named Pipe)
+- 익명 파이프 (Anonymous Pipe)
   - 서로 다른 프로세스 통신
   - 파이프의 이름만 알면 통신이 가능
 
