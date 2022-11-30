@@ -8,17 +8,18 @@
 
   
 
-  > `Process`는 다음과 같은 `state`들을 가질 수 있다.![download (2)](/Users/wontaeyeon/Downloads/download (2).jpeg)
+  > `Process`는 다음과 같은 `state`들을 가질 수 있다.![](https://velog.velcdn.com/images/roycewon/post/bfcabcd0-35f1-4ac5-91a4-005e12089ef3/image.jpeg)
+
   >
-  > 
   >
-  > 이때, `CPU`가 처리중이던 `Process` 가 `I/O`를 기다리며 `waiting state`가 되었다면
-  > 비싸고 아주 빠른 `CPU `는 사용되지 못하게 되는 엄청난 비효율성이 존재한다.
   >
-  > 
+  >이때, `CPU`가 처리중이던 `Process` 가 `I/O`를 기다리며 `waiting state`가 되었다면
+  >비싸고 아주 빠른 `CPU `는 사용되지 못하게 되는 엄청난 비효율성이 존재한다.
   >
-  > **CPU의 효율적인 사용을 위한 조치가 필요함**
-  > **=> cpu scheduling**
+  >
+  >
+  >**CPU의 효율적인 사용을 위한 조치가 필요함**
+  >**=> cpu scheduling**
 
 
 
@@ -27,12 +28,14 @@
 `Process` 상태를 제어하는 방법에 따라 `Scheduler`를 세분화해서 나누기도 함.
 
 - #### Long Term or job scheduler : `Process`를 `ready state`로 가져오는 역할을 함
+
   `ready state`인 `Process`의 수를 제어 => 멀티 프로그래밍의 지표
    시간이 많이 걸리는 `I/O-bound`와 짧지만 CPU자원을 사용해야 하는 `CPU-bound` 간의 밸런스를 유지하여 효율성을 높힘
 
   
 
 - #### Medium-term scheduler : `Process`를 일시 중단하고 다시 시작하는 역할을 담당.
+
   프로세스 혼합을 개선하기 위해 또는 메모리 요구 사항의 변경으로 인해 사용 가능한 메모리가 과도하게 커밋되어 메모리를 비워야 하는 경우 동작함. 멀티 프로그래밍의 정도를 줄여줌.
 
   
@@ -142,11 +145,8 @@ cf)  [Linux CFS](https://cesl.tistory.com/entry/Linux-CFS-%EC%8A%A4%EC%BC%80%EC%
 
 >  **스케줄러 클래스**
 >
-> 리눅스 스케줄러는 모듈화돼 있어 여러 유형의 프로세스를 각기 다른 알고리즘을 통해 스케줄링할 수 있다.
-> 모듈화된 형태를 스케줄러 클래스라고 한다.
+>  리눅스 스케줄러는 모듈화돼 있어 여러 유형의 프로세스를 각기 다른 알고리즘을 통해 스케줄링할 수 있다.
+>  모듈화된 형태를 스케줄러 클래스라고 한다.
 >
-> - 교체 가능한 여러 알고리즘을 동시에 사용하면서 클래스별로 독자적인 방식으로 프로세스를 스케줄링할 수 있다.
-> - 완전 공정 스케줄러 CFS는 `SCHED_NORMAL( posix 표준에서 SCHED_OTHER)`로 정의된 리눅스의 일반 프로세스용 스케줄러다.
-
-
-
+>  - 교체 가능한 여러 알고리즘을 동시에 사용하면서 클래스별로 독자적인 방식으로 프로세스를 스케줄링할 수 있다.
+>  - 완전 공정 스케줄러 CFS는 `SCHED_NORMAL( posix 표준에서 SCHED_OTHER)`로 정의된 리눅스의 일반 프로세스용 스케줄러다.
