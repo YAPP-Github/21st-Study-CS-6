@@ -72,22 +72,7 @@
 
   /+ starvation, fairness, dead line
 
-### 선점형(Preemptive)
 
-`Process`가 CPU를 점유하고 있을 때 다른 `Process`가 CPU를 빼앗아 차지할 수 있는 방법
--> *대화식 시분할 시스템과 같은 실시간 시스템에서 사용됨*
-
->#### 1. RR 스케줄링 (Round Robin)
->
->- 각 프로세스에 차례로 일정한 시간 할당량(Time slice) 동안 차지하도록 하는 기법.
->
->#### 2. SRT 스케줄링 (Shortest Remaining Time)
->
->- 남은 처리 시간이 가장 짧은 프로세스에게 CPU를 할당해 작업을 처리하도록 하는 방법.
->
->#### 3. MFQ 스케줄링 (Multilevel Feedback Queue)
->
->- 작업을 여러 단계로 나누어 처리하는 방식. 높은 단계는 시간 할당량을 적게, 낮은 단계는 많게 할당해 주는 방법
 
 ### 비선점형(Nonpreemptive)
 
@@ -98,13 +83,41 @@
 >
 >먼저 들어온 것을 우선처리(선입 선출)하는 방식으로, 가장 간단한 방식입니다.
 >
->#### 2.HRN 스케줄링 (Highest Resopnse ratio Next)
+>#### **2. SJF 스케줄링 (Shortest Job First)**
+>
+>작업시간이 가장 짧은 것부터 먼저 처리하는 방식. 이론적으론 이상적인 스케줄링 방식이지만 구현할 수 없음. `Ready Queue`에 존재하는 `Process`들의 작업 시간을 측정 할 수 없다. 단, 추론은 가능. 해당 `Process`가 과거에 사용한 CPU Burst(작업시간)을 활용
+>
+>#### 3.HRN 스케줄링 (Highest Resopnse ratio Next)
 >
 >우선순위 = (대기시간 + 작업시간 / 작업시간) 으로 계산하여 우선순위에 따라 처리하는 방식
 >
->#### 3. SJF 스케줄링 (Shortest Job First) 
+
+### 선점형(Preemptive)
+
+`Process`가 CPU를 점유하고 있을 때 다른 `Process`가 CPU를 빼앗아 차지할 수 있는 방법
+-> *대화식 시분할 시스템과 같은 실시간 시스템에서 사용됨*
+
+>#### 1. SRT 스케줄링 (Shortest Remaining Time)
 >
->작업시간이 가장 짧은 것부터 먼저 처리하는 방식
+>- 남은 처리 시간이 가장 짧은 프로세스에게 CPU를 할당해 작업을 처리하도록 하는 방법.
+>
+>#### **2. RR 스케줄링 (Round Robin)**
+>
+>- 각 프로세스에 차례로 일정한 **시간 할당량(Time slice)** 동안 차지하도록 하는 기법
+>
+>  RR 스케쥴링은 평균 지연시간이 긴 편이지만, 다른 스케쥴링 방법과 조합하여 쓰면 굉장히 유용하여 대부분의 OS에서 활용됨. 이 때, 적절한 `Time slice`가 성능에 중요한 영향을 줌
+>
+>  `Time slice`가 짧으면, `context switch` 가 자주 일어나 latency가 증가. 반대로, `Time slice`가 길면 `FCFS`와 비슷하게 동작
+>
+>#### **3. MFQ 스케줄링 (Multilevel Feedback Queue)**
+>
+>`Multilevel Queue` -> 우선순위로 작업 단계를 나누어 처리![Difference between Multilevel Queue (MLQ) and Multi Level Feedback Queue  (MLFQ) CPU scheduling algorithms - GeeksforGeeks](https://media.geeksforgeeks.org/wp-content/uploads/20200619201527/mf-1.jpg)
+>
+>이 때, 우선 순위가 높은 `System Process` 가 항시 실행되면 우선 순위가 낮은 작업들은 실행되지 못하는 문제 발생(starvation)
+>
+>**Multilevel Feedback Queue** (실제 OS가 채택하는 방식)
+>
+>Mulitlevel + RR: 우선 순위가 높은 단계의 작업일 수록 `time slice`를 짧게 주고, 모두 사용하면 한 단계 낮은 우선수위 작업으로 넘어감. (낮아질 수록 FCFS로 동작하기도 함)
 
 ![Different types of CPU Scheduling Algorithms](https://media.geeksforgeeks.org/wp-content/uploads/20220525174157/UntitledDiagram12.jpg)
 
