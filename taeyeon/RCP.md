@@ -9,8 +9,9 @@
 > 다른 컴퓨터에 존재하는 프로그램의 프로시저를 실행할 수 있도록 허용하는 프로토콜
 
 ## 동작 방식
+![](https://velog.velcdn.com/images/roycewon/post/37973efa-d4b0-4785-a0f8-80256eeee286/image.png)
 
-![operating-system-remote-procedure-call-1](/Users/wontaeyeon/Downloads/operating-system-remote-procedure-call-1.png)
+
 
 `Caller`에서 `procedure`를 호출하면, `Request Message`를 통해 함수의 `parameter`가 전달 되고, `Callee`에서 수행한 결과를 `Reply message`를 통해 `Caller`에게 전달 된다.
 
@@ -22,7 +23,9 @@ Client는 `Java`, Server는 `Go`로 작성되어 있다면, 이들 간의 원활
 
 
 
-![operating-system-remote-call-procedure-working](/Users/wontaeyeon/Downloads/operating-system-remote-call-procedure-working.png)
+![](https://velog.velcdn.com/images/roycewon/post/4c572457-ae60-42c8-b5c7-95c9eae6655b/image.png)
+
+
 
 >### `Stub`
 >
@@ -57,11 +60,12 @@ RPC 가 다른 프로세스, 서버와 연결해서 통신하는 방식이라면
 
 그래서 MSA에서 컴포넌트들 간의 통신에 채택되는 경우가 많이 있다.
 
-## gRPC
+# gRPC
 
 - Google 에서 만든 오픈소스 RPC Framework
+![](https://velog.velcdn.com/images/roycewon/post/2a187131-2fd5-4b5c-b0b4-127c1eb4a39b/image.jpeg)
 
-![download (3)](/Users/wontaeyeon/Downloads/download (3).jpeg)
+
 
 `Service`간의 통신이 `Prote Request/Resonse`를 통ㅐ 이루어짐. 각각의 `Service`의 PL이 달라도 `gRPC Stub`를 통해 통신이 가능하다.
 
