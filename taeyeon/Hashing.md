@@ -43,6 +43,7 @@ $h(k) = h(13k)$ 처럼, $k$의 해싱결과 값과 $13k$의 해싱 결과가 동
 <br>
 
 #### 개방주소법(Open Addressing)
+
 개방주소법은 충돌이 일어난 해시를 비어있는 테이블에 저장하는 기법이다.
 ![](https://velog.velcdn.com/images/roycewon/post/5060ff85-8666-4f50-b3dd-b794b3139796/image.png)
 
